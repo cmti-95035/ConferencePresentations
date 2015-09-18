@@ -3,13 +3,13 @@ package com.conference.presentations.validator;
 
 import com.conference.presentations.model.Conference;
 import com.conference.presentations.service.ConferenceService;
-import com.conference.presentations.service.ConferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+@Component
 public class ConferenceFormValidator implements Validator {
 //    @Autowired
 //    @Qualifier("emailValidator")

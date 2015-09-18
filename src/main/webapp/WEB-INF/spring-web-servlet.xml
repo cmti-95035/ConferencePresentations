@@ -12,5 +12,8 @@
 
     <!-- Scan the JavaConfig -->
 	<context:component-scan base-package="com.conference.presentations.config" />
-	
+
+        <bean id="conferenceFormValidator" class="com.conference.presentations.validator.ConferenceFormValidator" />
+        <bean id="conferenceService" class="com.conference.presentations.service.ConferenceServiceImpl" autowire="byName"/>
+        <bean id="conferenceDao" class="com.conference.presentations.dao.ConferenceDaoImpl" autowire="byName"/>
 </beans>
