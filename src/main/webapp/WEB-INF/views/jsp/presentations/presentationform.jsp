@@ -13,7 +13,7 @@
 
 	<c:choose>
 		<c:when test="${presentationForm['new']}">
-			<h1>Add Presentation</h1>
+			<h1>Upload A Presentation</h1>
 		</c:when>
 		<c:otherwise>
 			<h1>Update Presentation</h1>
