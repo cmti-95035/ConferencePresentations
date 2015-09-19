@@ -9,6 +9,10 @@ public interface PresentationService {
 
     List<Presentation> findAll();
 
+    List<Presentation> findAllByField(Integer fieldId);
+
+    List<Presentation> findAllByConferenceId(Integer conferenceId);
+
     void saveOrUpdate(Presentation user);
 
     void delete(int id);

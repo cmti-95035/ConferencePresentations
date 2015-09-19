@@ -21,7 +21,7 @@
 			</div>
 		</c:if>
 
-		<h1>All Users</h1>
+		<h1>All Presentations</h1>
 
 		<table class="table table-striped">
 			<thead>
@@ -43,7 +43,7 @@
 					<td>${presentation.conferenceId}</td>
 					<td>${presentation.title}</td>
 					<td>${presentation.authors}</td>
-					<td>${presentation.abstract}</td>
+					<td>${presentation.abs}</td>
 					<td>
 						<spring:url value="/presentations/${presentation.id}" var="presentationUrl" />
 						<spring:url value="/presentations/${presentation.id}/delete" var="deleteUrl" />

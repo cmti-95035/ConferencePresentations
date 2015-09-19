@@ -45,7 +45,7 @@
 
 	<div class="row">
 		<label class="col-sm-2">Abstract</label>
-		<div class="col-sm-10">${presentation.abstract}</div>
+		<div class="col-sm-10">${presentation.abs}</div>
 	</div>
 
 </div>

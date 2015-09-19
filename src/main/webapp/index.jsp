@@ -64,19 +64,18 @@ if(typeof _csrf_=="undefined"){_csrf_={}}if(typeof _tsbp_=="undefined"){_tsbp_={
 	<div class="parbase acsHeader header">
 
 
-<div id="hd"><!-- header start -->
-<!--googleoff: index-->
+<div id="hd">
 	<div class="global-nav">
         <div id="main-nav">
        		<div class="container">
 				<ul role="navigation" title="Main Menu" class="nav mainSiteMenu" id="mainSiteMenu" >
 					<li class='active current' id="home">
-						<a href="home.html" title="Home Page">Home</a>
+						<a href="index.jsp" title="Home Page">Home</a>
 					</li>
-					<li class='' id="conferences"><a title="Organize A Conference" href="/ConferencePresentations/conferences/add">Organize A Conference</a></li>
-          <li class='' id="find-a-presentation"><a title="Find A Presentation" href="/ConferencePresentations/presentation/list">Find A Presentation</a></li>
-          <li class='' id="find-a-conference"><a title="Find A Conference" href="/ConferencePresentations/conferences/list">Find A Conference</a></li>
+		  <li class='' id="conferences"><a title="Organize A Conference" href="/ConferencePresentations/conferences/add">Organize A Conference</a></li>
+          <li class='' id="find-a-conference"><a title="Find A Conference" href="/ConferencePresentations/conferences/">Find A Conference</a></li>
           <li class='' id="upload-presentation"><a title="Upload Presentation" href="/ConferencePresentations/presentations/upload">Upload Presentation</a></li>
+          <li class='' id="find-a-presentation"><a title="Find A Presentation" href="/ConferencePresentations/presentations/list">Find A Presentation</a></li>
           <li class='' id="register"><a title="Register" href="/ConferencePresentations/users/add">Register</a></li>
           <li class='' id="login"><a title="Login" href="/login">Login</a></li>
           <li class='' id="policy"><a title="Privacy" href="/ConferencePresentations/privacy.jsp">Privacy</a></li>
@@ -87,7 +86,7 @@ if(typeof _csrf_=="undefined"){_csrf_={}}if(typeof _tsbp_=="undefined"){_tsbp_={
     </div>
 	</div>
 
-</div><!-- header end -->
+</div>
 
 
 </body>

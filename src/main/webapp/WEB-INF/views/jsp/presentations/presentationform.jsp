@@ -27,12 +27,12 @@
 
 		<form:hidden path="id" />
 
-		<spring:bind path="conference">
+		<spring:bind path="conferenceId">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">Conference</label>
 				<div class="col-sm-10">
-					<form:input path="conference" type="text" class="form-control " id="conference" placeholder="Conference ID" />
-					<form:errors path="conference" class="control-label" />
+					<form:input path="conferenceId" type="text" class="form-control " id="conferenceId" placeholder="Conference ID" />
+					<form:errors path="conferenceId" class="control-label" />
 				</div>
 			</div>
 		</spring:bind>
@@ -57,12 +57,12 @@
 			</div>
 		</spring:bind>
 
-		<spring:bind path="abstract">
+		<spring:bind path="abs">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">Abstract</label>
 				<div class="col-sm-10">
-					<form:input path="abstract" class="form-control" id="abstract" placeholder="Abstract" />
-					<form:errors path="abstract" class="control-label" />
+					<form:input path="abs" class="form-control" id="abstract" placeholder="Abstract" />
+					<form:errors path="abs" class="control-label" />
 				</div>
 			</div>
 		</spring:bind>

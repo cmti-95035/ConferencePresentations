@@ -32,5 +32,5 @@ CREATE TABLE presentations (
   title VARCHAR(300),
   authors VARCHAR(200),
   fieldId INTEGER,
-  abstract VARCHAR(2000)
+  abs VARCHAR(2000)
 );

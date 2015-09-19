@@ -78,8 +78,8 @@ public class PresentationDaoImpl implements PresentationDao {
     public void save(Presentation presentation) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        String sql = "INSERT INTO presentations (userId, conferenceId, title, authors, fieldId, abstract)"
-                + "VALUES ( :userId, :conferenceId, :title, :authors, :fieldId, :abstract)";
+        String sql = "INSERT INTO presentations (userId, conferenceId, title, authors, fieldId, abs)"
+                + "VALUES ( :userId, :conferenceId, :title, :authors, :fieldId, :abs)";
 
         namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(presentation), keyHolder);
         presentation.setId(keyHolder.getKey().intValue());
@@ -88,7 +88,7 @@ public class PresentationDaoImpl implements PresentationDao {
     @Override
     public void update(Presentation presentation) {
         String sql = "UPDATE USERS SET userId=:userId, conferenceId=:conferenceId, " + "title=:title, authors=:authors, "
-                + "fieldId=:fieldId, abstract=:abstract WHERE id=:id";
+                + "fieldId=:fieldId, abs=:abs WHERE id=:id";
 
         namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(presentation));
     }
@@ -109,7 +109,7 @@ public class PresentationDaoImpl implements PresentationDao {
         paramSource.addValue("userId", presentation.getUserId());
         paramSource.addValue("conferenceId", presentation.getConferenceId());
         paramSource.addValue("title", presentation.getTitle());
-        paramSource.addValue("abstract", presentation.getAbs());
+        paramSource.addValue("abs", presentation.getAbs());
         paramSource.addValue("fieldId", presentation.getFieldId());
         paramSource.addValue("authors", presentation.getAuthors());
 
@@ -125,7 +125,7 @@ public class PresentationDaoImpl implements PresentationDao {
             presentation.setConferenceId(rs.getInt("conferenceId"));
             presentation.setTitle(rs.getString("title"));
             presentation.setAuthors(rs.getString("authors"));
-            presentation.setAbs(rs.getString("abstract"));
+            presentation.setAbs(rs.getString("abs"));
             presentation.setFieldId(rs.getInt("fieldId"));
             return presentation;
         }
