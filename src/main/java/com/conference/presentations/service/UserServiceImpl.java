@@ -2,6 +2,8 @@ package com.conference.presentations.service;
 
 import java.util.List;
 
+import com.conference.presentations.dao.ResearchFieldDao;
+import com.conference.presentations.model.ResearchField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +14,15 @@ import com.conference.presentations.model.User;
 public class UserServiceImpl implements UserService {
 
 	UserDao userDao;
+	ResearchFieldDao researchFieldDao;
 
 	@Autowired
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}
 
+	@Autowired
+	public void setResearchFieldDao(ResearchFieldDao researchFieldDao) { this.researchFieldDao =  researchFieldDao;}
 	@Override
 	public User findById(Integer id) {
 		return userDao.findById(id);
@@ -44,4 +49,8 @@ public class UserServiceImpl implements UserService {
 		userDao.delete(id);
 	}
 
+	@Override
+	public List<ResearchField> findAllFields() {
+		return researchFieldDao.findAll();
+	}
 }

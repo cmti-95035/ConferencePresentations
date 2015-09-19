@@ -2,6 +2,7 @@ package com.conference.presentations.service;
 
 import java.util.List;
 
+import com.conference.presentations.model.ResearchField;
 import com.conference.presentations.model.User;
 
 public interface UserService {
@@ -13,5 +14,7 @@ public interface UserService {
 	void saveOrUpdate(User user);
 	
 	void delete(int id);
+
+	List<ResearchField> findAllFields();
 	
 }

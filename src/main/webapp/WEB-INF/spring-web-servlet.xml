@@ -15,5 +15,7 @@
 
         <bean id="conferenceFormValidator" class="com.conference.presentations.validator.ConferenceFormValidator" />
         <bean id="conferenceService" class="com.conference.presentations.service.ConferenceServiceImpl" autowire="byName"/>
+        <bean id="presentationService" class="com.conference.presentations.service.PresentationServiceImpl" autowire="byName"/>
         <bean id="conferenceDao" class="com.conference.presentations.dao.ConferenceDaoImpl" autowire="byName"/>
+        <bean id="presentationDao" class="com.conference.presentations.dao.PresentationDaoImpl" autowire="byName"/>
 </beans>

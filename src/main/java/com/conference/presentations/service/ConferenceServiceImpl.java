@@ -3,6 +3,7 @@ package com.conference.presentations.service;
 
 import com.conference.presentations.dao.ConferenceDao;
 import com.conference.presentations.model.Conference;
+import com.conference.presentations.model.ResearchField;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -35,5 +36,10 @@ public class ConferenceServiceImpl implements ConferenceService {
     @Override
     public void delete(int id) {
         conferenceDao.delete(id);
+    }
+
+    @Override
+    public List<ResearchField> findAllFields() {
+        return null;
     }
 }
