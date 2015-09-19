@@ -18,4 +18,5 @@
         <bean id="presentationService" class="com.conference.presentations.service.PresentationServiceImpl" autowire="byName"/>
         <bean id="conferenceDao" class="com.conference.presentations.dao.ConferenceDaoImpl" autowire="byName"/>
         <bean id="presentationDao" class="com.conference.presentations.dao.PresentationDaoImpl" autowire="byName"/>
+        <bean id="researchFieldDao" class="com.conference.presentations.dao.ResearchFieldDaoImpl" autowire="byName"/>
 </beans>

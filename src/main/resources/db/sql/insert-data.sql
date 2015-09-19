@@ -13,6 +13,6 @@ INSERT INTO conferences (name, venue, conferenceTime, organizer) VALUES ('Spring
 INSERT INTO conferences (name, venue, conferenceTime, organizer) VALUES ('INNOVATION FROM DISCOVERY TO APPLICATION', 'Boston', 'August 16-20, 2015', 'ACS');
 
 INSERT INTO presentations (userId, conferenceId, title, authors, fieldId, abstract) VALUES (100, 1001, 'my presentation', 'AA, BB, CC', 2, 'this is the abstract');
-INSERT INTO presentations (userId, conferenceId, title, authors, fieldId, abstract) VALUES (101, 1000, 'my presentation2', '面包机', 2, 'this is the abstract2‘);
+INSERT INTO presentations (userId, conferenceId, title, authors, fieldId, abstract) VALUES (101, 1000, 'my presentation2', '面包机', 2, 'this is the abstract2');
 
 

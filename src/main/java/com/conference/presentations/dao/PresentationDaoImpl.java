@@ -1,4 +1,4 @@
-package com.presentation.presentations.dao;
+package com.conference.presentations.dao;
 
 import com.conference.presentations.dao.PresentationDao;
 import com.conference.presentations.model.Presentation;

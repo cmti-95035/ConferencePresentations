@@ -21,37 +21,35 @@
 			</div>
 		</c:if>
 
-		<h1>All Conferences</h1>
+		<h1>All Users</h1>
 
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>#ID</th>
-					<th>Name</th>
-					<th>Venue</th>
-					<th>ConferenceTime</th>
-					<th>Organizer</th>
-					<th>Website</th>
+					<th>Conference</th>
+					<th>Title</th>
+					<th>Authors</th>
+					<th>Abstract</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 
-			<c:forEach var="conference" items="${conferences}">
+			<c:forEach var="presentation" items="${presentations}">
 				<tr>
 					<td>
-						${conference.id}
+						${presentation.id}
 					</td>
-					<td>${conference.name}</td>
-					<td>${conference.venue}</td>
-					<td>${conference.conferenceTime}</td>
-					<td>${conference.organizer}</td>
-					<td>${conference.website}</td>
+					<td>${presentation.conferenceId}</td>
+					<td>${presentation.title}</td>
+					<td>${presentation.authors}</td>
+					<td>${presentation.abstract}</td>
 					<td>
-						<spring:url value="/conferences/${conference.id}" var="conferenceUrl" />
-						<spring:url value="/conferences/${conference.id}/delete" var="deleteUrl" /> 
-						<spring:url value="/conferences/${conference.id}/update" var="updateUrl" />
+						<spring:url value="/presentations/${presentation.id}" var="presentationUrl" />
+						<spring:url value="/presentations/${presentation.id}/delete" var="deleteUrl" />
+						<spring:url value="/presentations/${presentation.id}/update" var="updateUrl" />
 
-						<button class="btn btn-info" onclick="location.href='${conferenceUrl}'">Query</button>
+						<button class="btn btn-info" onclick="location.href='${presentationUrl}'">Query</button>
 						<button class="btn btn-primary" onclick="location.href='${updateUrl}'">Update</button>
 						<button class="btn btn-danger" onclick="this.disabled=true;post('${deleteUrl}')">Delete</button></td>
 				</tr>

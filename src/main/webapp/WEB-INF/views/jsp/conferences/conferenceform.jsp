@@ -87,6 +87,18 @@
 			</div>
 		</spring:bind>
 
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<c:choose>
+					<c:when test="${conferenceForm['new']}">
+						<button type="submit" class="btn-lg btn-primary pull-right">Add</button>
+					</c:when>
+					<c:otherwise>
+						<button type="submit" class="btn-lg btn-primary pull-right">Update</button>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</div>
 	</form:form>
 
 </div>
