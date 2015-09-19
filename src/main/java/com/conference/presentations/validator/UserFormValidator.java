@@ -38,13 +38,10 @@ public class UserFormValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword","NotEmpty.userForm.confirmPassword");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "sex", "NotEmpty.userForm.sex");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "country", "NotEmpty.userForm.country");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phoneNumber", "NotEmpty.userForm.phoneNumber");
 
 		if(!emailValidator.valid(user.getEmail())){
 			errors.rejectValue("email", "Pattern.userForm.email");
-		}
-		
-		if(user.getNumber()==null || user.getNumber()<=0){
-			errors.rejectValue("number", "NotEmpty.userForm.number");
 		}
 		
 		if(user.getCountry().equalsIgnoreCase("none")){
@@ -55,12 +52,8 @@ public class UserFormValidator implements Validator {
 			errors.rejectValue("confirmPassword", "Diff.userform.confirmPassword");
 		}
 		
-		if (user.getField() == null || user.getField().size() < 2) {
-			errors.rejectValue("framework", "Valid.userForm.framework");
-		}
-
-		if (user.getSkill() == null || user.getSkill().size() < 3) {
-			errors.rejectValue("skill", "Valid.userForm.skill");
+		if (user.getFields() == null || user.getFields().size() < 2) {
+			errors.rejectValue("fields", "Valid.userForm.framework");
 		}
 
 	}

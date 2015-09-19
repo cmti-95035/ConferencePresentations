@@ -44,13 +44,8 @@
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">Newsletter</label>
-		<div class="col-sm-10">${user.newsletter}</div>
-	</div>
-
-	<div class="row">
-		<label class="col-sm-2">Web Frameworks</label>
-		<div class="col-sm-10">${user.framework}</div>
+		<label class="col-sm-2">Research Fields</label>
+		<div class="col-sm-10">${user.fields}</div>
 	</div>
 
 	<div class="row">
@@ -59,18 +54,13 @@
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">Number</label>
-		<div class="col-sm-10">${user.number}</div>
+		<label class="col-sm-2">Phone Number</label>
+		<div class="col-sm-10">${user.phoneNumber}</div>
 	</div>
 
 	<div class="row">
 		<label class="col-sm-2">Country</label>
 		<div class="col-sm-10">${user.country}</div>
-	</div>
-
-	<div class="row">
-		<label class="col-sm-2">Skill</label>
-		<div class="col-sm-10">${user.skill}</div>
 	</div>
 
 </div>

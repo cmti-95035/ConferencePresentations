@@ -100,12 +100,10 @@ public class UserController {
 		user.setAddress("abc 88");
 		//user.setPassword("123");
 		//user.setConfirmPassword("123");
-		user.setNewsletter(true);
 		user.setSex("M");
-		user.setField(new ArrayList<String>(Arrays.asList("Physics", "Chemistry")));
-		user.setSkill(new ArrayList<String>(Arrays.asList("Synthesis", "Polymer")));
+		user.setFields(new ArrayList<String>(Arrays.asList("Physics", "Chemistry")));
 		user.setCountry("SG");
-		user.setNumber(2);
+		user.setPhoneNumber("408-876-4321");
 
 		model.addAttribute("userForm", user);
 
@@ -172,22 +170,6 @@ public class UserController {
 		fieldList.add("Chemical Engineering");
 		fieldList.add("Electrical Engineering");
 		model.addAttribute("fieldList", fieldList);
-
-		Map<String,String> skillSet = new LinkedHashMap<String,String>();
-		skillSet.put("Synthesis", "Synthesis");
-		skillSet.put("Polymer", "Polymer");
-		skillSet.put("SuperConductor", "SuperConductor");
-		skillSet.put("Battery", "Battery");
-		skillSet.put("Grails", "Grails");
-		model.addAttribute("skillSet", skillSet);
-
-		List<Integer> numbers = new ArrayList<Integer>();
-		numbers.add(1);
-		numbers.add(2);
-		numbers.add(3);
-		numbers.add(4);
-		numbers.add(5);
-		model.addAttribute("numberList", numbers);
 
 		Map<String, String> country = new LinkedHashMap<String, String>();
 		country.put("US", "United Stated");

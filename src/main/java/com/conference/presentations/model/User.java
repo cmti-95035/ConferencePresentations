@@ -21,23 +21,17 @@ public class User {
 	// form:input - password
 	String confirmPassword;
 
-	// form:checkbox - single checkbox
-	boolean newsletter;
-
 	// form:checkboxes - multiple checkboxes
-	List<String> field;
+	List<String> fields;
 
 	// form:radiobutton - radio button
 	String sex;
 
 	// form:radiobuttons - radio button
-	Integer number;
+	String phoneNumber;
 
 	// form:select - form:option - dropdown - single select
 	String country;
-
-	// form:select - multiple=true - dropdown - multiple select
-	List<String> skill;
 
 	public boolean isNew() {
 		return (this.id == null);
@@ -91,20 +85,13 @@ public class User {
 		this.confirmPassword = confirmPassword;
 	}
 
-	public boolean isNewsletter() {
-		return newsletter;
+
+	public List<String> getFields() {
+		return fields;
 	}
 
-	public void setNewsletter(boolean newsletter) {
-		this.newsletter = newsletter;
-	}
-
-	public List<String> getField() {
-		return field;
-	}
-
-	public void setField(List<String> field) {
-		this.field = field;
+	public void setFields(List<String> fields) {
+		this.fields = fields;
 	}
 
 	public String getSex() {
@@ -115,12 +102,12 @@ public class User {
 		this.sex = sex;
 	}
 
-	public Integer getNumber() {
-		return number;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getCountry() {
@@ -131,20 +118,12 @@ public class User {
 		this.country = country;
 	}
 
-	public List<String> getSkill() {
-		return skill;
-	}
-
-	public void setSkill(List<String> skill) {
-		this.skill = skill;
-	}
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", address=" + address
 				+ ", password=" + password + ", confirmPassword=" + confirmPassword
-				+ ", newsletter=" + newsletter + ", field=" + field + ", sex=" + sex
-				+ ", number=" + number + ", country=" + country + ", skill=" + skill + "]" + isNew();
+				+ ", fields=" + fields + ", sex=" + sex
+				+ ", phoneNumber=" + phoneNumber + ", country=" + country  + "]" + isNew();
 	}
 
 }

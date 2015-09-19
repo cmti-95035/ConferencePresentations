@@ -29,7 +29,7 @@
 					<th>#ID</th>
 					<th>Name</th>
 					<th>Email</th>
-					<th>framework</th>
+					<th>Fields</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -41,8 +41,8 @@
 					</td>
 					<td>${user.name}</td>
 					<td>${user.email}</td>
-					<td><c:forEach var="framework" items="${user.framework}" varStatus="loop">
-						${framework}
+					<td><c:forEach var="fields" items="${user.fields}" varStatus="loop">
+						${fields}
     					<c:if test="${not loop.last}">,</c:if>
 						</c:forEach></td>
 					<td>

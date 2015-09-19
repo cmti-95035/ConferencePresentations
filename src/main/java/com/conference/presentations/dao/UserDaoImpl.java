@@ -71,8 +71,8 @@ public class UserDaoImpl implements UserDao {
 
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		
-		String sql = "INSERT INTO USERS(NAME, EMAIL, PASSWORD, NUMBER, FIELD, COUNTRY) "
-				+ "VALUES ( :name, :email, :password, :field, :number, :country)";
+		String sql = "INSERT INTO USERS(NAME, EMAIL, PASSWORD, PHONENUMBER, FIELDS, COUNTRY, SEX, ADDRESS) "
+				+ "VALUES ( :name, :email, :password, :phoneNumber, :fields, :country, :sex, :address)";
 
 		namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(user), keyHolder);
 		user.setId(keyHolder.getKey().intValue());
@@ -82,8 +82,8 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void update(User user) {
 
-		String sql = "UPDATE USERS SET NAME=:name, EMAIL=:email, " + "PASSWORD=:password, FIELD=:field, "
-				+ "NUMBER=:number, COUNTRY=:country WHERE id=:id";
+		String sql = "UPDATE USERS SET NAME=:name, EMAIL=:email, " + "PASSWORD=:password, FIELDS=:fields, "
+				+ "PHONENUMBER=:phoneNumber, COUNTRY=:country, " + " SEX=:sex, ADDRESS=:address WHERE id=:id";
 
 		namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(user));
 
@@ -108,14 +108,12 @@ public class UserDaoImpl implements UserDao {
 		paramSource.addValue("email", user.getEmail());
 		paramSource.addValue("address", user.getAddress());
 		paramSource.addValue("password", user.getPassword());
-		paramSource.addValue("newsletter", user.isNewsletter());
 
 		// join String
-		paramSource.addValue("field", convertListToDelimitedString(user.getField()));
+		paramSource.addValue("fields", convertListToDelimitedString(user.getFields()));
 		paramSource.addValue("sex", user.getSex());
-		paramSource.addValue("number", user.getNumber());
+		paramSource.addValue("phoneNumber", user.getPhoneNumber());
 		paramSource.addValue("country", user.getCountry());
-		paramSource.addValue("skill", convertListToDelimitedString(user.getSkill()));
 
 		return paramSource;
 	}
@@ -125,12 +123,14 @@ public class UserDaoImpl implements UserDao {
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			User user = new User();
 			user.setId(rs.getInt("id"));
-			user.setName(rs.getString("name"));
-			user.setEmail(rs.getString("email"));
-			user.setField(convertDelimitedStringToList(rs.getString("field")));
+			user.setName(rs.getNString("name"));
+			user.setEmail(rs.getNString("email"));
+			user.setFields(convertDelimitedStringToList(rs.getNString("fields")));
 			user.setCountry(rs.getString("country"));
-			user.setNumber(rs.getInt("number"));
-			user.setPassword(rs.getString("password"));
+			user.setPhoneNumber(rs.getNString("phoneNumber"));
+			user.setPassword(rs.getNString("password"));
+			user.setAddress(rs.getNString("address"));
+			user.setSex(rs.getNString("sex"));
 			return user;
 		}
 	}

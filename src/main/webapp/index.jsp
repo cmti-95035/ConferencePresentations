@@ -75,7 +75,7 @@ if(typeof _csrf_=="undefined"){_csrf_={}}if(typeof _tsbp_=="undefined"){_tsbp_={
 		  <li class='' id="conferences"><a title="Organize A Conference" href="/ConferencePresentations/conferences/add">Organize A Conference</a></li>
           <li class='' id="find-a-conference"><a title="Find A Conference" href="/ConferencePresentations/conferences/">Find A Conference</a></li>
           <li class='' id="upload-presentation"><a title="Upload Presentation" href="/ConferencePresentations/presentations/upload">Upload Presentation</a></li>
-          <li class='' id="find-a-presentation"><a title="Find A Presentation" href="/ConferencePresentations/presentations/list">Find A Presentation</a></li>
+          <li class='' id="find-a-presentation"><a title="Find A Presentation" href="/ConferencePresentations/presentations/">Find A Presentation</a></li>
           <li class='' id="register"><a title="Register" href="/ConferencePresentations/users/add">Register</a></li>
           <li class='' id="login"><a title="Login" href="/login">Login</a></li>
           <li class='' id="policy"><a title="Privacy" href="/ConferencePresentations/privacy.jsp">Privacy</a></li>

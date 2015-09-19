@@ -7,6 +7,8 @@ public class Presentation {
 
     Integer conferenceId;
 
+    Conference conference;
+
     String title;
 
     Integer fieldId;
@@ -75,4 +77,11 @@ public class Presentation {
         this.abs = abs;
     }
 
+    public Conference getConference() {
+        return conference;
+    }
+
+    public void setConference(Conference conference) {
+        this.conference = conference;
+    }
 }

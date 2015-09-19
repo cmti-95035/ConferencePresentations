@@ -10,8 +10,10 @@ CREATE TABLE users (
   name VARCHAR(30),
   email VARCHAR(50),
   password VARCHAR(20),
-  number VARCHAR(20),
-  field VARCHAR(500),
+  phoneNumber VARCHAR(20),
+  fields VARCHAR(500),
+  address VARCHAR(200),
+  sex VARCHAR(1),
   COUNTRY VARCHAR(10)
 );
 

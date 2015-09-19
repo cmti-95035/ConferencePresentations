@@ -59,7 +59,7 @@
 
 		<spring:bind path="confirmPassword">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">confirm Password</label>
+				<label class="col-sm-2 control-label">Confirm Password</label>
 				<div class="col-sm-10">
 					<form:password path="confirmPassword" class="form-control" id="password" placeholder="password" />
 					<form:errors path="confirmPassword" class="control-label" />
@@ -77,26 +77,13 @@
 			</div>
 		</spring:bind>
 
-		<spring:bind path="newsletter">
+		<spring:bind path="fields">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Newsletter</label>
+				<label class="col-sm-2 control-label">Research Fields</label>
 				<div class="col-sm-10">
-					<div class="checkbox">
-						<label> <form:checkbox path="newsletter" id="newsletter" />
-						</label>
-						<form:errors path="newsletter" class="control-label" />
-					</div>
-				</div>
-			</div>
-		</spring:bind>
-
-		<spring:bind path="field">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Web Frameworks</label>
-				<div class="col-sm-10">
-					<form:checkboxes path="field" items="${fieldList}" element="label class='checkbox-inline'" />
+					<form:checkboxes path="fields" items="${fieldList}" element="label class='checkbox-inline'" />
 					<br />
-					<form:errors path="field" class="control-label" />
+					<form:errors path="fields" class="control-label" />
 				</div>
 			</div>
 		</spring:bind>
@@ -113,32 +100,15 @@
 			</div>
 		</spring:bind>
 
-		<spring:bind path="number">
+		<spring:bind path="phoneNumber">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Number</label>
+				<label class="col-sm-2 control-label">Phone Number</label>
 				<div class="col-sm-10">
-					<form:radiobuttons path="number" items="${numberList}" element="label class='radio-inline'" />
-					<br />
-					<form:errors path="number" class="control-label" />
+					<form:textarea path="phoneNumber" rows="5" class="form-control" id="phoneNumber" placeholder="phoneNumber" />
+					<form:errors path="phoneNumber" class="control-label" />
 				</div>
 			</div>
 		</spring:bind>
-
-		<!-- Custom Script, Spring map to model via 'name' attribute
-		<div class="form-group">
-			<label class="col-sm-2 control-label">Number</label>
-			<div class="col-sm-10">
-
-				<c:forEach items="${numberList}" var="obj">
-					<div class="radio">
-						<label> 
-							<input type="radio" name="number" value="${obj}">${obj}
-						</label>
-					</div>
-				</c:forEach>
-			</div>
-		</div>
- 		-->
 
 		<spring:bind path="country">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
@@ -149,17 +119,6 @@
 						<form:options items="${countryList}" />
 					</form:select>
 					<form:errors path="country" class="control-label" />
-				</div>
-				<div class="col-sm-5"></div>
-			</div>
-		</spring:bind>
-
-		<spring:bind path="skill">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Java Skills</label>
-				<div class="col-sm-5">
-					<form:select path="skill" items="${skillSet}" multiple="true" size="5" class="form-control" />
-					<form:errors path="skill" class="control-label" />
 				</div>
 				<div class="col-sm-5"></div>
 			</div>
