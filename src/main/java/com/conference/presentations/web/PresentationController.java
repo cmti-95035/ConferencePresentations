@@ -8,13 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 
 @Controller
 public class PresentationController {
@@ -29,6 +34,7 @@ public class PresentationController {
 //    }
 
     private PresentationService presentationService;
+    private String pathUpload = "/uploads";
 
     @Autowired
     public void setPresentationService(PresentationService presentationService) {
@@ -76,7 +82,7 @@ public class PresentationController {
     }
 
     // show add presentation form
-    @RequestMapping(value = "/presentations/upload", method = RequestMethod.GET)
+    @RequestMapping(value = "/presentations/add", method = RequestMethod.GET)
     public String showAddPresentationForm(Model model) {
 
         logger.debug("showAddPresentationForm()");
@@ -156,4 +162,62 @@ public class PresentationController {
         return model;
 
     }
+
+    @RequestMapping(value = "/presentations/{id}/upload", method = RequestMethod.GET)
+    public String getUplaodFile(@PathVariable("id") int id, Model model){
+        logger.debug("getUplaodFile() id: {}", id);
+
+        Presentation presentation = presentationService.findById(id);
+        if (presentation == null) {
+            model.addAttribute("css", "danger");
+            model.addAttribute("msg", "Presentation not found");
+        }
+        model.addAttribute("presentation", presentation);
+
+//        return "presentations/show";
+        return "presentations/upload";
+    }
+
+    @RequestMapping(value = "/presentations/upload", method = RequestMethod.POST)
+    public String uploadFile(HttpSession session, @RequestParam("fileUpload") MultipartFile fileUpload)
+            throws IllegalStateException, IOException {
+        String fileupload = createPathUpload(session).getAbsolutePath();
+
+        logger.debug("Name File : [{}]", fileUpload.getOriginalFilename());
+        logger.debug("Size File : [{}]", fileUpload.getSize());
+        logger.debug("Type File : [{}]", fileUpload.getContentType());
+
+        File filePath = new File(fileupload + File.separator + fileUpload.getOriginalFilename());
+
+        try{
+            //transfer file to destination file
+            fileUpload.transferTo(filePath);
+
+            logger.debug("File AbsolutePath [{}]",filePath.getAbsolutePath());
+        }catch(Exception e){
+            logger.error("Error hasi Upload");
+            logger.error("Error Message : {}",e.getMessage());
+        }
+
+
+        return "redirect:/presentations";
+    }
+
+    private File createPathUpload(HttpSession session) {
+
+        // get path from project + path upload
+        String fullPath = session.getServletContext().getRealPath(pathUpload);
+
+        logger.debug("Full path : [{}]",fullPath);
+
+        File filePath = new File(fullPath);
+
+        //create folder if empty folder
+        if(!filePath.exists()){
+            logger.debug("!hasil.exists");
+            filePath.mkdirs();
+        }
+        return filePath;
+    }
+
 }

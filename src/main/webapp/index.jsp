@@ -23,7 +23,7 @@ html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:1
     		</div>
 			<div id="navbar">
     			<ul class="nav navbar-nav navbar-left">
-    				<li class='' id="upload-presentation"><a title="Upload Presentation" href="/ConferencePresentations/presentations/upload">Upload Presentation</a></li>
+    				<li class='' id="upload-presentation"><a title="Upload Presentation" href="/ConferencePresentations/presentations/add">Upload Presentation</a></li>
     			</ul>
     		</div>
 			<div id="navbar">

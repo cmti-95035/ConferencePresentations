@@ -45,11 +45,11 @@
 					<td>${presentation.authors}</td>
 					<td>${presentation.abs}</td>
 					<td>
-						<spring:url value="/presentations/${presentation.id}" var="presentationUrl" />
+						<spring:url value="/presentations/${presentation.id}/upload" var="presentationUrl" />
 						<spring:url value="/presentations/${presentation.id}/delete" var="deleteUrl" />
 						<spring:url value="/presentations/${presentation.id}/update" var="updateUrl" />
 
-						<button class="btn btn-info" onclick="location.href='${presentationUrl}'">Query</button>
+						<button class="btn btn-info" onclick="location.href='${presentationUrl}'">Upload A File</button>
 						<button class="btn btn-primary" onclick="location.href='${updateUrl}'">Update</button>
 						<button class="btn btn-danger" onclick="this.disabled=true;post('${deleteUrl}')">Delete</button></td>
 				</tr>

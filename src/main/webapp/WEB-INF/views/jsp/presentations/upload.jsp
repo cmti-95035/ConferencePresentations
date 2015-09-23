@@ -20,7 +20,7 @@
 		</div>
 	</c:if>
 
-	<h1>Presentation Detail</h1>
+	<h1>Upload A File To Presentation</h1>
 	<br />
 
 	<div class="row">
@@ -50,6 +50,25 @@
 
 </div>
 
+	<form action="/ConferencePresentations/presentations/upload" method="POST" enctype="multipart/form-data">
+		<table border="0">
+			<tbody>
+				<tr>
+					<td>Upload File</td>
+					<td>
+						<input type="file" name="fileUpload">
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>
+						<input type="submit" value="Upload">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</form>
 <jsp:include page="../fragments/footer.jsp" />
 
 </body>
