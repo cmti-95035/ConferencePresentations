@@ -174,19 +174,26 @@ public class PresentationController {
         }
         model.addAttribute("presentation", presentation);
 
-//        return "presentations/show";
         return "presentations/upload";
     }
 
     @RequestMapping(value = "/presentations/upload", method = RequestMethod.POST)
-    public String uploadFile(HttpSession session, @RequestParam("fileUpload") MultipartFile fileUpload)
+    public String uploadFile(HttpSession session, @RequestParam("pId") int pId, @RequestParam("fileUpload") MultipartFile fileUpload)
             throws IllegalStateException, IOException {
         String fileupload = createPathUpload(session).getAbsolutePath();
 
         logger.debug("Name File : [{}]", fileUpload.getOriginalFilename());
         logger.debug("Size File : [{}]", fileUpload.getSize());
         logger.debug("Type File : [{}]", fileUpload.getContentType());
+        logger.debug("pId: [{}]", pId);
 
+        Presentation presentation = presentationService.findById(pId);
+        if (presentation == null) {
+            // TODO should fail
+        } else {
+            presentation.setFileName(fileUpload.getOriginalFilename());
+            presentationService.saveOrUpdate(presentation);
+        }
         File filePath = new File(fileupload + File.separator + fileUpload.getOriginalFilename());
 
         try{

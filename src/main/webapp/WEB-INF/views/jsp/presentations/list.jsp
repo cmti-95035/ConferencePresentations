@@ -31,6 +31,7 @@
 					<th>Title</th>
 					<th>Authors</th>
 					<th>Abstract</th>
+					<th>Presentation File</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -44,6 +45,7 @@
 					<td>${presentation.title}</td>
 					<td>${presentation.authors}</td>
 					<td>${presentation.abs}</td>
+					<td>${presentation.fileName}</td>
 					<td>
 						<spring:url value="/presentations/${presentation.id}/upload" var="presentationUrl" />
 						<spring:url value="/presentations/${presentation.id}/delete" var="deleteUrl" />

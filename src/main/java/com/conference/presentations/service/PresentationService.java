@@ -13,7 +13,7 @@ public interface PresentationService {
 
     List<Presentation> findAllByConferenceId(Integer conferenceId);
 
-    void saveOrUpdate(Presentation user);
+    void saveOrUpdate(Presentation presentation);
 
     void delete(int id);
 }

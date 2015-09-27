@@ -51,6 +51,7 @@
 </div>
 
 	<form action="/ConferencePresentations/presentations/upload" method="POST" enctype="multipart/form-data">
+		<input type="hidden" name="pId" value=${presentation.id} />
 		<table border="0">
 			<tbody>
 				<tr>

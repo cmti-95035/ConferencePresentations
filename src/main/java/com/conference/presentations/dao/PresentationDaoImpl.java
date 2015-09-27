@@ -87,8 +87,8 @@ public class PresentationDaoImpl implements PresentationDao {
 
     @Override
     public void update(Presentation presentation) {
-        String sql = "UPDATE USERS SET userId=:userId, conferenceId=:conferenceId, " + "title=:title, authors=:authors, "
-                + "fieldId=:fieldId, abs=:abs WHERE id=:id";
+        String sql = "UPDATE presentations SET userId=:userId, conferenceId=:conferenceId, " + "title=:title, authors=:authors, "
+                + "fieldId=:fieldId, abs=:abs, filename=:fileName WHERE id=:id";
 
         namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(presentation));
     }
@@ -112,6 +112,7 @@ public class PresentationDaoImpl implements PresentationDao {
         paramSource.addValue("abs", presentation.getAbs());
         paramSource.addValue("fieldId", presentation.getFieldId());
         paramSource.addValue("authors", presentation.getAuthors());
+        paramSource.addValue("fileName", presentation.getFileName());
 
         return paramSource;
     }
@@ -127,6 +128,7 @@ public class PresentationDaoImpl implements PresentationDao {
             presentation.setAuthors(rs.getString("authors"));
             presentation.setAbs(rs.getString("abs"));
             presentation.setFieldId(rs.getInt("fieldId"));
+            presentation.setFileName(rs.getNString("fileName"));
             return presentation;
         }
     }

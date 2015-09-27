@@ -33,6 +33,7 @@ CREATE TABLE presentations (
   conferenceId INTEGER,
   title VARCHAR(300),
   authors VARCHAR(200),
+  fileName VARCHAR(100),
   fieldId INTEGER,
   abs VARCHAR(2000)
 );

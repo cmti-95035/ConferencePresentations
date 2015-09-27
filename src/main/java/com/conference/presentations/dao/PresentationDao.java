@@ -13,9 +13,9 @@ public interface PresentationDao {
 
     List<Presentation> findAllByConferenceId(Integer conferenceId);
 
-    void save(Presentation user);
+    void save(Presentation presentation);
 
-    void update(Presentation user);
+    void update(Presentation presentation);
 
     void delete(Integer id);
 }
