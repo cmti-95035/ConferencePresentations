@@ -1,5 +1,6 @@
 package com.conference.presentations.web;
 
+import com.conference.presentations.model.ResearchField;
 import com.conference.presentations.model.User;
 import com.conference.presentations.service.UserService;
 import com.conference.presentations.validator.UserFormValidator;
@@ -100,7 +101,6 @@ public class UserController {
 		user.setAddress("abc 88");
 		//user.setPassword("123");
 		//user.setConfirmPassword("123");
-		user.setSex("M");
 		user.setFields(new ArrayList<String>(Arrays.asList("Physics", "Chemistry")));
 		user.setCountry("SG");
 		user.setPhoneNumber("408-876-4321");
@@ -163,12 +163,17 @@ public class UserController {
 	private void populateDefaultModel(Model model) {
 
 		List<String> fieldList = new ArrayList<String>();
-		fieldList.add("Physics");
-		fieldList.add("Chemistry");
-		fieldList.add("Biology");
-		fieldList.add("Material Science and Engineering");
-		fieldList.add("Chemical Engineering");
-		fieldList.add("Electrical Engineering");
+//		fieldList.add("Physics");
+//		fieldList.add("Chemistry");
+//		fieldList.add("Biology");
+//		fieldList.add("Material Science and Engineering");
+//		fieldList.add("Chemical Engineering");
+//		fieldList.add("Electrical Engineering");
+
+		List<ResearchField> fields = userService.findAllFields();
+		for(ResearchField researchField : fields){
+			fieldList.add(researchField.getName());
+		}
 		model.addAttribute("fieldList", fieldList);
 
 		Map<String, String> country = new LinkedHashMap<String, String>();

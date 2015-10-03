@@ -81,21 +81,9 @@
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">Research Fields</label>
 				<div class="col-sm-10">
-					<form:checkboxes path="fields" items="${fieldList}" element="label class='checkbox-inline'" />
+					<form:checkboxes path="fields" items="${fieldList}" multiple="true" element="label class='checkbox-inline'" />
 					<br />
 					<form:errors path="fields" class="control-label" />
-				</div>
-			</div>
-		</spring:bind>
-
-		<spring:bind path="sex">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">Sex</label>
-				<div class="col-sm-10">
-					<label class="radio-inline"> <form:radiobutton path="sex" value="M" /> Male
-					</label> <label class="radio-inline"> <form:radiobutton path="sex" value="F" /> Female
-					</label> <br />
-					<form:errors path="sex" class="control-label" />
 				</div>
 			</div>
 		</spring:bind>

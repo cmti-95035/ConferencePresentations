@@ -24,9 +24,6 @@ public class User {
 	// form:checkboxes - multiple checkboxes
 	List<String> fields;
 
-	// form:radiobutton - radio button
-	String sex;
-
 	// form:radiobuttons - radio button
 	String phoneNumber;
 
@@ -94,14 +91,6 @@ public class User {
 		this.fields = fields;
 	}
 
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -122,7 +111,7 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", address=" + address
 				+ ", password=" + password + ", confirmPassword=" + confirmPassword
-				+ ", fields=" + fields + ", sex=" + sex
+				+ ", fields=" + fields
 				+ ", phoneNumber=" + phoneNumber + ", country=" + country  + "]" + isNew();
 	}
 

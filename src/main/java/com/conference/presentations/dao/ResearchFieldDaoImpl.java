@@ -2,6 +2,7 @@ package com.conference.presentations.dao;
 
 import com.conference.presentations.model.ResearchField;
 import com.conference.presentations.model.ResearchField;
+import com.conference.presentations.server.ResearchFieldArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -14,6 +15,7 @@ import org.springframework.jdbc.support.KeyHolder;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,8 +52,16 @@ public class ResearchFieldDaoImpl implements ResearchFieldDao {
 
     @Override
     public List<ResearchField> findAll() {
-        String sql = "SELECT * FROM researchFields";
-        List<ResearchField> result = namedParameterJdbcTemplate.query(sql, new ResearchFieldMapper());
+//        String sql = "SELECT * FROM researchFields";
+//        List<ResearchField> result = namedParameterJdbcTemplate.query(sql, new ResearchFieldMapper());
+//
+//        return result;
+
+        ResearchFieldArray researchFieldArray = ConferenceRestServer.getAllFields();
+        List<ResearchField> result = new ArrayList<>();
+        for(com.conference.presentations.server.ResearchField researchField : researchFieldArray){
+            result.add(toModelResearchField(researchField));
+        }
 
         return result;
     }
@@ -100,6 +110,18 @@ public class ResearchFieldDaoImpl implements ResearchFieldDao {
 
             return user;
         }
+    }
+
+    private com.conference.presentations.server.ResearchField toServerField(ResearchField researchField){
+        return new com.conference.presentations.server.ResearchField().setFieldName(researchField.getName()).setId(researchField.getId());
+    }
+
+    private ResearchField toModelResearchField(com.conference.presentations.server.ResearchField researchField){
+        ResearchField rf = new ResearchField();
+        rf.setId(researchField.getId());
+        rf.setName(researchField.getFieldName());
+
+        return rf;
     }
 
 }

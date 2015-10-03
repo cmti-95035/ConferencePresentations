@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void saveOrUpdate(User user) {
 
-		if (findById(user.getId())==null) {
+		if (user.getId() == null || findById(user.getId())==null) {
 			userDao.save(user);
 		} else {
 			userDao.update(user);

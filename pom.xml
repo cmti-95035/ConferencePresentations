@@ -7,6 +7,14 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>Upload Your Conference Presentations</name>
 
+	<repositories>
+		<!--other repositories if any-->
+		<repository>
+			<id>presentations.local</id>
+			<name>presentations</name>
+			<url>file:///Users/jianli/git/ConferencePresentations/repo</url>
+		</repository>
+	</repositories>
 	<properties>
 		<jdk.version>1.7</jdk.version>
 		<spring.version>4.1.6.RELEASE</spring.version>
@@ -15,6 +23,7 @@
 		<jcl.slf4j.version>1.7.12</jcl.slf4j.version>
 		<jstl.version>1.2</jstl.version>
 		<servletapi.version>3.1.0</servletapi.version>
+		<restli.version>2.2.5</restli.version>
 	</properties>
 
 	<dependencies>
@@ -77,6 +86,23 @@
 			<version>4.1.5.RELEASE</version>
 		</dependency>
 
+
+		<!-- RestLi -->
+		<dependency>
+			<groupId>com.linkedin.pegasus</groupId>
+			<artifactId>restli-client</artifactId>
+			<version>${restli.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.linkedin.pegasus</groupId>
+			<artifactId>r2</artifactId>
+			<version>${restli.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.linkedin.pegasus</groupId>
+			<artifactId>pegasus-common</artifactId>
+			<version>${restli.version}</version>
+		</dependency>
 		<!-- HyperSQL DB -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
@@ -118,11 +144,15 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.conference.presentations</groupId>
-			<artifactId>api</artifactId>
+			<groupId>com.conference.presentations.server</groupId>
+			<artifactId>api-data-template</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>/Users/jianli/git/ConferenceServer/api/build/libs/api-data-template.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.conference.presentations.server</groupId>
+			<artifactId>api-rest-client</artifactId>
+			<version>1.0</version>
 		</dependency>
 	</dependencies>
 

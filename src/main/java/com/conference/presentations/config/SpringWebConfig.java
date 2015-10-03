@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @Configuration
 @ComponentScan({ "com.conference.presentations.web", "com.conference.presentations.service", "com.conference.presentations.dao",
-		"com.conference.presentations.exception", "com.conference.presentations.validator" })
+		"com.conference.presentations.exception", "com.conference.presentations.validator", "com.conference.presentations.server" })
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
 
 	@Override

@@ -1,9 +1,9 @@
-INSERT INTO researchFields (id, field) VALUES (1, 'Physics');
-INSERT INTO researchFields (id, field) VALUES (2, 'Chemistry');
-INSERT INTO researchFields (id, field) VALUES (3, 'Biology');
-INSERT INTO researchFields (id, field) VALUES (4, 'Material Science and Engineering');
-INSERT INTO researchFields (id, field) VALUES (5, 'Chemical Engineering');
-INSERT INTO researchFields (id, field) VALUES (6, 'Electrical Engineering');
+--INSERT INTO researchFields (id, field) VALUES (1, 'Physics');
+--INSERT INTO researchFields (id, field) VALUES (2, 'Chemistry');
+--INSERT INTO researchFields (id, field) VALUES (3, 'Biology');
+--INSERT INTO researchFields (id, field) VALUES (4, 'Material Science and Engineering');
+--INSERT INTO researchFields (id, field) VALUES (5, 'Chemical Engineering');
+--INSERT INTO researchFields (id, field) VALUES (6, 'Electrical Engineering');
 
 INSERT INTO users (name, email, fields) VALUES ('Jianyong Ouyang', 'ouyang58@gmail.com', 'Chemistry, Material Science and Engineering');
 INSERT INTO users (name, email, fields) VALUES ('Xuezhong Jiang', 'jiangxzs@yahoo.com', 'Chemistry, Chemical Engineering');
