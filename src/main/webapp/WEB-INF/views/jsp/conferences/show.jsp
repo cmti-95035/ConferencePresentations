@@ -34,6 +34,11 @@
 	</div>
 
 	<div class="row">
+		<label class="col-sm-2">Research Fields</label>
+		<div class="col-sm-10">${conference.fields}</div>
+	</div>
+
+	<div class="row">
 		<label class="col-sm-2">Venue</label>
 		<div class="col-sm-10">${conference.venue}</div>
 	</div>

@@ -28,6 +28,7 @@
 				<tr>
 					<th>#ID</th>
 					<th>Name</th>
+					<th>Research Fields</th>
 					<th>Venue</th>
 					<th>ConferenceTime</th>
 					<th>Organizer</th>
@@ -42,6 +43,7 @@
 						${conference.id}
 					</td>
 					<td>${conference.name}</td>
+					<td>${conference.fields}</td>
 					<td>${conference.venue}</td>
 					<td>${conference.conferenceTime}</td>
 					<td>${conference.organizer}</td>

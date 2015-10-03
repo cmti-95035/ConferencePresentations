@@ -24,6 +24,17 @@ public class Conference {
     // form:input - textarea
     String emails;
 
+    // form:checkboxes - multiple checkboxes
+    List<String> fields;
+
+    public List<String> getFields() {
+        return fields;
+    }
+
+    public void setFields(List<String> fields) {
+        this.fields = fields;
+    }
+
     public boolean isNew() {
         return (this.id == null);
     }

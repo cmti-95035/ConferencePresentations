@@ -2,6 +2,7 @@ package com.conference.presentations.service;
 
 
 import com.conference.presentations.dao.ConferenceDao;
+import com.conference.presentations.dao.ResearchFieldDao;
 import com.conference.presentations.model.Conference;
 import com.conference.presentations.model.ResearchField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,10 @@ import java.util.List;
 public class ConferenceServiceImpl implements ConferenceService {
     ConferenceDao conferenceDao;
 
+    ResearchFieldDao researchFieldDao;
+
+    @Autowired
+    public void setResearchFieldDao(ResearchFieldDao researchFieldDao) { this.researchFieldDao =  researchFieldDao;}
     @Autowired
     public void setConferenceDao(ConferenceDao conferenceDao) { this.conferenceDao = conferenceDao; }
 
@@ -26,7 +31,7 @@ public class ConferenceServiceImpl implements ConferenceService {
 
     @Override
     public void saveOrUpdate(Conference conference) {
-        if(conferenceDao.findById(conference.getId()) == null){
+        if(conference.getId() == null || conferenceDao.findById(conference.getId()) == null){
             conferenceDao.save(conference);
         } else {
             conferenceDao.update(conference);
@@ -40,6 +45,6 @@ public class ConferenceServiceImpl implements ConferenceService {
 
     @Override
     public List<ResearchField> findAllFields() {
-        return null;
+        return researchFieldDao.findAll();
     }
 }

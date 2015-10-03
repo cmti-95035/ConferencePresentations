@@ -37,6 +37,17 @@
 			</div>
 		</spring:bind>
 
+		<spring:bind path="fields">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+				<label class="col-sm-2 control-label">Research Fields</label>
+				<div class="col-sm-10">
+					<form:checkboxes path="fields" items="${fieldList}" multiple="true" element="label class='checkbox-inline'" />
+					<br />
+					<form:errors path="fields" class="control-label" />
+				</div>
+			</div>
+		</spring:bind>
+
 		<spring:bind path="venue">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">Venue</label>

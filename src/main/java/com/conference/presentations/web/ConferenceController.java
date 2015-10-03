@@ -1,6 +1,7 @@
 package com.conference.presentations.web;
 
 import com.conference.presentations.model.Conference;
+import com.conference.presentations.model.ResearchField;
 import com.conference.presentations.service.ConferenceService;
 import com.conference.presentations.validator.ConferenceFormValidator;
 import org.slf4j.Logger;
@@ -17,6 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ConferenceController {
@@ -55,6 +60,7 @@ public class ConferenceController {
         logger.debug("saveOrUpdateConference() : {}", conference);
 
         if (result.hasErrors()) {
+            populateDefaultModel(model);
             return "conferences/conferenceform";
         } else {
 
@@ -96,6 +102,7 @@ public class ConferenceController {
 
         model.addAttribute("conferenceForm", conference);
 
+        populateDefaultModel(model);
         return "conferences/conferenceform";
 
     }
@@ -109,6 +116,7 @@ public class ConferenceController {
         Conference conference = conferenceService.findById(id);
         model.addAttribute("conferenceForm", conference);
 
+        populateDefaultModel(model);
         return "conferences/conferenceform";
 
     }
@@ -157,5 +165,16 @@ public class ConferenceController {
 
         return model;
 
+    }
+
+    private void populateDefaultModel(Model model) {
+
+        List<String> fieldList = new ArrayList<String>();
+
+        List<ResearchField> fields = conferenceService.findAllFields();
+        for(ResearchField researchField : fields){
+            fieldList.add(researchField.getName());
+        }
+        model.addAttribute("fieldList", fieldList);
     }
 }
