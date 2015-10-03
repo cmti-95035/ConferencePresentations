@@ -52,8 +52,8 @@ public class UserFormValidator implements Validator {
 		}
 
 		// at least one field
-		if (user.getFields() == null || user.getFields().size() < 2) {
-			errors.rejectValue("fields", "Valid.userForm.framework");
+		if (user.getFields() == null || user.getFields().size() < 1) {
+			errors.rejectValue("fields", "Valid.userForm.field");
 		}
 
 	}

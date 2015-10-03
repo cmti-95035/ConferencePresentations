@@ -97,13 +97,13 @@ public class UserController {
 
 		// set default value
 		user.setName("your name");
-		user.setEmail("test@gmail.com");
-		user.setAddress("abc 88");
+		user.setEmail("your email");
+		user.setAddress("your address");
 		//user.setPassword("123");
 		//user.setConfirmPassword("123");
-		user.setFields(new ArrayList<String>(Arrays.asList("Physics", "Chemistry")));
-		user.setCountry("SG");
-		user.setPhoneNumber("408-876-4321");
+//		user.setFields(new ArrayList<String>(Arrays.asList("Physics", "Chemistry")));
+		user.setCountry("US");
+		user.setPhoneNumber("your phone number");
 
 		model.addAttribute("userForm", user);
 

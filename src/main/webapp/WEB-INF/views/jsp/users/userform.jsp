@@ -92,7 +92,7 @@
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">Phone Number</label>
 				<div class="col-sm-10">
-					<form:textarea path="phoneNumber" rows="5" class="form-control" id="phoneNumber" placeholder="phoneNumber" />
+					<form:input path="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="phoneNumber" />
 					<form:errors path="phoneNumber" class="control-label" />
 				</div>
 			</div>

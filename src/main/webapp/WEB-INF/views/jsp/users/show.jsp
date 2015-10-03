@@ -49,11 +49,6 @@
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">Sex</label>
-		<div class="col-sm-10">${user.sex}</div>
-	</div>
-
-	<div class="row">
 		<label class="col-sm-2">Phone Number</label>
 		<div class="col-sm-10">${user.phoneNumber}</div>
 	</div>
