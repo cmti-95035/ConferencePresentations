@@ -256,4 +256,99 @@ public class ConferenceRestServer {
             return null;
         }
     }
+
+    public static Integer createPresentation(Presentation presentation) {
+        try {
+            // Construct a request for the specified fortune
+            PresentationCreateRequestBuilder rb = new PresentationRequestBuilders().create();
+            CreateIdRequest<Integer, Presentation> createReq = rb.input(presentation).build();
+
+            System.out.println("\ncreate presentation request: " + createReq);
+            // Send the request and wait for a response
+            final ResponseFuture<IdResponse<Integer>> getFuture = restClient.sendRequest(createReq);
+            final Response<IdResponse<Integer>> resp = getFuture.getResponse();
+
+            Integer presentationId = resp.getEntity().getId();
+            // Print the response
+            System.out.println("\ncreate presentation returns: " + presentationId);
+            return presentationId;
+        } catch (RemoteInvocationException e) {
+            e.printStackTrace();
+            System.out.println("\ncreate presentation failed!!!!!!!!!!!!!!!!!!");
+            return null;
+        }
+    }
+
+    public static Presentation getPresentation(Integer presentationId) {
+        GetRequest<Presentation> getReq = new PresentationRequestBuilders().get().id(presentationId).addHeader(CONFERENCE_AUTHORIZATION_HEADER, FAKE_CONFERENCE_TOKEN).build();
+
+        System.out.println("\nget presentation request: " + getReq);
+        // Send the request and wait for a response
+        final ResponseFuture<Presentation> getFuture = restClient.sendRequest(getReq);
+        final Response<Presentation> resp;
+        try {
+            resp = getFuture.getResponse();
+            Presentation presentation = resp.getEntity();
+
+            return presentation;
+        } catch (RemoteInvocationException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static boolean updatePresentation(final Presentation newPresentation, final Integer presentationId) {
+        // Creating the profile update request builder
+        PresentationUpdateRequestBuilder updateRequestBuilder = new PresentationRequestBuilders().update();
+
+        UpdateRequest updateReq = updateRequestBuilder.id(presentationId).input(newPresentation)
+                .addHeader(CONFERENCE_AUTHORIZATION_HEADER, FAKE_CONFERENCE_TOKEN).build();
+
+        // Send the request and wait for a response
+        final ResponseFuture getFuture = restClient.sendRequest(updateReq);
+
+        // If you get an OK response, then the comment has been updated in the table
+        final Response resp;
+        try {
+            resp = getFuture.getResponse();
+            if (resp.getStatus() == HttpStatus.S_200_OK.getCode()) {
+                return true;
+            }
+        } catch (RemoteInvocationException e) {
+            e.printStackTrace();
+
+        }
+        return false;
+    }
+
+    public static void deletePresentation(Integer presentationId) {
+        try {
+            PresentationDeleteRequestBuilder rb = new PresentationRequestBuilders().delete();
+            DeleteRequest<Presentation> deleteRequest = rb.id(presentationId).build();
+
+            final ResponseFuture<EmptyRecord> responseFuture = restClient.sendRequest(deleteRequest);
+            final Response<EmptyRecord> response = responseFuture.getResponse();
+
+            System.out.println("\ndeletePresentation returns: " + response.getStatus());
+        } catch (RemoteInvocationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static PresentationArray getAllPresentations(RestClient restClient){
+        // Construct a request for the specified fortune
+        PresentationDoGetAllPresentationsRequestBuilder rb = new PresentationRequestBuilders().actionGetAllPresentations();
+        ActionRequest<PresentationArray> getReq = rb.build();
+
+        // Send the request and wait for a response
+        final ResponseFuture<PresentationArray> getFuture = restClient.sendRequest(getReq);
+        final Response<PresentationArray> resp;
+        try {
+            resp = getFuture.getResponse();
+            return resp.getEntity();
+        } catch (RemoteInvocationException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

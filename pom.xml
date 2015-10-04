@@ -146,13 +146,13 @@
 		<dependency>
 			<groupId>com.conference.presentations.server</groupId>
 			<artifactId>api-data-template</artifactId>
-			<version>1.2</version>
+			<version>1.3</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.conference.presentations.server</groupId>
 			<artifactId>api-rest-client</artifactId>
-			<version>1.2</version>
+			<version>1.3</version>
 		</dependency>
 	</dependencies>
 

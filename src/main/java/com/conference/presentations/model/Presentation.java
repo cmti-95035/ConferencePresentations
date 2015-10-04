@@ -1,23 +1,25 @@
 package com.conference.presentations.model;
 
+import java.util.List;
+
 public class Presentation {
     Integer id;
 
     Integer userId;
 
-    Integer conferenceId;
-
     Conference conference;
 
     String title;
 
-    Integer fieldId;
+    List<Integer> fields;
 
     String authors;
 
     String abs;
 
     String fileName;
+
+    Boolean isPrivate;
 
     public String getFileName() {
         return fileName;
@@ -55,14 +57,6 @@ public class Presentation {
         this.authors = authors;
     }
 
-    public Integer getConferenceId() {
-        return conferenceId;
-    }
-
-    public void setConferenceId(Integer conferenceId) {
-        this.conferenceId = conferenceId;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -71,12 +65,12 @@ public class Presentation {
         this.title = title;
     }
 
-    public Integer getFieldId() {
-        return fieldId;
+    public List<Integer> getFields() {
+        return fields;
     }
 
-    public void setFieldId(Integer fieldId) {
-        this.fieldId = fieldId;
+    public void setFields(List<Integer> fields) {
+        this.fields = fields;
     }
 
     public String getAbs() {
@@ -93,5 +87,13 @@ public class Presentation {
 
     public void setConference(Conference conference) {
         this.conference = conference;
+    }
+
+    public Boolean getIsPrivate() {
+        return isPrivate;
+    }
+
+    public void setIsPrivate(Boolean isPrivate) {
+        this.isPrivate = isPrivate;
     }
 }
